@@ -1,30 +1,37 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ResumeProvider } from "./context";
+import Home from "./pages/Home";
+import UserInfo from "./pages/UserInfo";
+import AddExperience from "./pages/AddExperience";
+import AddEducation from "./pages/AddEducation";
+import AddSkill from "./pages/AddSkill";
+import EditExperience from "./pages/EditExperience";
+import EditEducation from "./pages/EditEducation";
+import EditSkill from "./pages/EditSkill";
+import Spellcheck from "./pages/Spellcheck";
+import ChatGPT from "./pages/ChatGPT";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Resume Builder</h1>
-      <div className="resumeSection">
-        <h2>Experience</h2>
-        <p>Experience Placeholder</p>
-        <button>Add Experience</button>
-        <br></br>
-      </div>
-      <div className="resumeSection">
-        <h2>Education</h2>
-        <p>Education Placeholder</p>
-        <button>Add Education</button>
-        <br></br>
-      </div>
-      <div className="resumeSection">
-        <h2>Skills</h2>
-        <p>Skill Placeholder</p>
-        <button>Add Skill</button>
-        <br></br>
-      </div>
-      <br></br>
-      <button>Export</button>
-    </div>
+    <BrowserRouter>
+      <ResumeProvider>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/user-info" element={<UserInfo />} />
+            <Route path="/experience/new" element={<AddExperience />} />
+            <Route path="/education/new" element={<AddEducation />} />
+            <Route path="/skill/new" element={<AddSkill />} />
+            <Route path="/experience/:id/edit" element={<EditExperience />} />
+            <Route path="/education/:id/edit" element={<EditEducation />} />
+            <Route path="/skill/:id/edit" element={<EditSkill />} />
+            <Route path="/spellcheck" element={<Spellcheck />} />
+            <Route path="/chatgpt" element={<ChatGPT />} />
+          </Routes>
+        </div>
+      </ResumeProvider>
+    </BrowserRouter>
   );
 }
 

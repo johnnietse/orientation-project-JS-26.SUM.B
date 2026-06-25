@@ -30,15 +30,18 @@ export function ResumeProvider({ children }) {
     setter(list.filter((i) => i.id !== id));
   }, []);
 
-  const reorderItems = useCallback(async (endpoint, id, newPosition, setter, list) => {
-    const updated = [...list];
-    const idx = updated.findIndex((i) => i.id === id);
-    if (idx === -1) return;
-    const [item] = updated.splice(idx, 1);
-    updated.splice(newPosition, 0, item);
-    setter(updated);
-    await api.put(`${endpoint}${id}/`, { position: newPosition });
-  }, []);
+  const reorderItems = useCallback(
+    async (endpoint, id, newPosition, setter, list) => {
+      const updated = [...list];
+      const idx = updated.findIndex((i) => i.id === id);
+      if (idx === -1) return;
+      const [item] = updated.splice(idx, 1);
+      updated.splice(newPosition, 0, item);
+      setter(updated);
+      await api.put(`${endpoint}${id}/`, { position: newPosition });
+    },
+    []
+  );
 
   const fetchAll = useCallback(async () => {
     try {

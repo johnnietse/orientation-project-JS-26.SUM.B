@@ -1,13 +1,27 @@
+import React, { useState } from "react";
 import "./App.css";
+import AddExperience from "./AddExperience";
 
 function App() {
+  const [isAddingExperience, setIsAddingExperience] = useState(false);
+
+  if (isAddingExperience) {
+    return (
+      <div className="App">
+        <AddExperience onBack={() => setIsAddingExperience(false)} />
+      </div>
+    );
+  }
+
   return (
     <div className="App">
       <h1>Resume Builder</h1>
       <div className="resumeSection">
         <h2>Experience</h2>
         <p>Experience Placeholder</p>
-        <button>Add Experience</button>
+        <button onClick={() => setIsAddingExperience(true)}>
+          Add Experience
+        </button>
         <br></br>
       </div>
       <div className="resumeSection">

@@ -14,7 +14,13 @@ import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import { useNavigate } from "react-router-dom";
 import ItemCard from "./ItemCard";
 
-export default function ResumeSection({ title, items, type, onDelete, onReorder }) {
+export default function ResumeSection({
+  title,
+  items,
+  type,
+  onDelete,
+  onReorder,
+}) {
   const navigate = useNavigate();
 
   const sensors = useSensors(
@@ -45,7 +51,10 @@ export default function ResumeSection({ title, items, type, onDelete, onReorder 
           onDragEnd={handleDragEnd}
           modifiers={[restrictToVerticalAxis]}
         >
-          <SortableContext items={items.map((i) => i.id)} strategy={verticalListSortingStrategy}>
+          <SortableContext
+            items={items.map((i) => i.id)}
+            strategy={verticalListSortingStrategy}
+          >
             {items.map((item) => (
               <ItemCard
                 key={item.id}

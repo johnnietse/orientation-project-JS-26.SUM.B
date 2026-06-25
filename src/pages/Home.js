@@ -24,22 +24,31 @@ export default function Home() {
   }, [fetchAll]);
 
   function handleDelete(type, id) {
-    if (!window.confirm("Delete this item? It will be removed from your resume.")) return;
+    if (
+      !window.confirm("Delete this item? It will be removed from your resume.")
+    )
+      return;
 
     const endpoint =
-      type === "experience" ? "/resume/experience/"
-      : type === "education" ? "/resume/education/"
-      : "/resume/skill/";
+      type === "experience"
+        ? "/resume/experience/"
+        : type === "education"
+        ? "/resume/education/"
+        : "/resume/skill/";
 
     const setter =
-      type === "experience" ? setExperience
-      : type === "education" ? setEducation
-      : setSkills;
+      type === "experience"
+        ? setExperience
+        : type === "education"
+        ? setEducation
+        : setSkills;
 
     const list =
-      type === "experience" ? experience
-      : type === "education" ? education
-      : skills;
+      type === "experience"
+        ? experience
+        : type === "education"
+        ? education
+        : skills;
 
     deleteItem(endpoint, id, setter, list).catch(() => {
       setter(list.filter((i) => i.id !== id));
@@ -70,7 +79,10 @@ export default function Home() {
           ) : (
             <span>Add your info at the top of the resume</span>
           )}
-          <button onClick={() => navigate("/user-info")} className="editInfoBtn">
+          <button
+            onClick={() => navigate("/user-info")}
+            className="editInfoBtn"
+          >
             {userInfo.name ? "Edit Info" : "Add Info"}
           </button>
         </div>

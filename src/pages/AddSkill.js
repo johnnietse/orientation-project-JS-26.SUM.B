@@ -38,19 +38,45 @@ export default function AddSkill() {
 
   return (
     <div className="page">
-      <p className="backLink" onClick={() => navigate("/")}>&larr; Back to Resume</p>
+      <p className="backLink" onClick={() => navigate("/")}>
+        &larr; Back to Resume
+      </p>
       <h2>Add Skill</h2>
       <form onSubmit={handleSubmit}>
-        <label>Name <input name="name" value={form.name} onChange={handleChange} placeholder="e.g. JavaScript, Python, UX Design" required /></label>
-        <label>Proficiency <input name="proficiency" value={form.proficiency} onChange={handleChange} placeholder="e.g. 2-4 years, Expert, Beginner" /></label>
+        <label>
+          Name{" "}
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="e.g. JavaScript, Python, UX Design"
+            required
+          />
+        </label>
+        <label>
+          Proficiency{" "}
+          <input
+            name="proficiency"
+            value={form.proficiency}
+            onChange={handleChange}
+            placeholder="e.g. 2-4 years, Expert, Beginner"
+          />
+        </label>
         <label>
           Logo URL
-          <input name="logo" value={form.logo} onChange={handleChange} placeholder="https://example.com/logo.png" />
+          <input
+            name="logo"
+            value={form.logo}
+            onChange={handleChange}
+            placeholder="https://example.com/logo.png"
+          />
         </label>
         <LogoDropzone onUploaded={(url) => setForm({ ...form, logo: url })} />
         <div className="formButtons">
           <button type="submit">Save</button>
-          <button type="button" onClick={() => navigate("/")}>Cancel</button>
+          <button type="button" onClick={() => navigate("/")}>
+            Cancel
+          </button>
         </div>
         {saved && <p className="successMsg">Skill saved! Redirecting...</p>}
       </form>

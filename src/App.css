@@ -1,20 +1,22 @@
 body {
   background-color: rgb(29, 83, 159);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .App {
-  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
   color: white;
 }
 
 .resumeSection {
   background-color: white;
-  padding: 10px;
-  margin-left: 30%;
-  margin-right: 30%;
+  padding: 20px;
+  margin-bottom: 20px;
   border-radius: 15px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  margin-bottom: 20px;
   color: black;
 }
 
@@ -23,7 +25,299 @@ body {
 }
 
 button {
-  padding: 10px;
+  padding: 10px 16px;
   border-radius: 4px;
   background-color: rgb(248 185 42);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.userInfoStrip {
+  background: white;
+  color: black;
+  padding: 12px 16px;
+  border-radius: 15px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.editInfoBtn {
+  margin-left: auto;
+}
+
+.navButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+}
+
+.emptyState {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+.itemCard {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: #fafafa;
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dragHandle {
+  cursor: grab;
+  font-size: 18px;
+  color: #888;
+  user-select: none;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-size: 14px;
+}
+
+.itemActions {
+  display: flex;
+  gap: 6px;
+}
+
+.deleteBtn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.itemLogo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-top: 6px;
+}
+
+.page {
+  background: white;
+  color: black;
+  padding: 24px;
+  border-radius: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.page h2 {
+  margin-top: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 14px;
+  gap: 4px;
+}
+
+input,
+textarea {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.formButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.dropzone {
+  border: 2px dashed #aaa;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #666;
+  font-size: 14px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.dropzone.active {
+  border-color: rgb(248 185 42);
+  background: #fff8e0;
+}
+
+.pdfContent {
+  padding: 20px;
+  background: white;
+  color: black;
+  max-width: 210mm;
+}
+
+.pdfContent h1 {
+  margin: 0 0 4px 0;
+}
+
+.pdfContent .summary {
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.pdfContent hr {
+  border: none;
+  border-top: 2px solid #333;
+  margin: 16px 0;
+}
+
+.pdfContent h2 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.pdfItem {
+  margin-bottom: 12px;
+}
+
+.pdfItem h3 {
+  margin: 0 0 2px 0;
+}
+
+.pdfItem p {
+  margin: 2px 0;
+}
+
+.exportBtn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.spellcheckResult,
+.chatgptResponse {
+  margin-top: 16px;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.backLink {
+  cursor: pointer;
+  color: rgb(29, 83, 159);
+  font-size: 14px;
+  margin: 0 0 12px 0;
+  display: inline-block;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.successMsg {
+  color: #2e7d32;
+  font-weight: 600;
+  font-style: italic;
+  margin: 8px 0 0 0;
+}
+
+.errorMsg {
+  color: #c62828;
+  background: #ffebee;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 8px 0 0 0;
+  font-size: 14px;
+}
+
+.toast {
+  background: #2e7d32;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 12px;
+  font-weight: 600;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.backendNotice {
+  background: #fff3cd;
+  color: #856404;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 14px;
+  border: 1px solid #ffc107;
+}
+
+.secondaryBtn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.secondaryBtn:hover {
+  background-color: #5a6268;
+}
+
+.dropzoneHint {
+  font-size: 12px;
+  color: #888;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+
+.dropzoneError {
+  color: #c62828;
+  font-size: 13px;
+  margin: 4px 0 0 0;
 }

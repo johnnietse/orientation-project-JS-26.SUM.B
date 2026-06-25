@@ -17,7 +17,9 @@ export default function Spellcheck() {
       const data = await post("/spellcheck", { text });
       setResult(data);
     } catch {
-      setError("Could not reach the spellcheck backend. Make sure the Python server is running on port 8000.");
+      setError(
+        "Could not reach the spellcheck backend. Make sure the Python server is running on port 8000."
+      );
     }
     setLoading(false);
   }
@@ -34,10 +36,13 @@ export default function Spellcheck() {
 
   return (
     <div className="page">
-      <p className="backLink" onClick={() => navigate("/")}>&larr; Back to Resume</p>
+      <p className="backLink" onClick={() => navigate("/")}>
+        &larr; Back to Resume
+      </p>
       <h2>Spellcheck</h2>
       <div className="backendNotice">
-        &#9895; Requires the Python backend on port 8000. Click "Demo" to see a sample.
+        &#9895; Requires the Python backend on port 8000. Click "Demo" to see a
+        sample.
       </div>
       <textarea
         value={text}

@@ -56,7 +56,9 @@ export default function ExportPdf({ userInfo, experience, education, skills }) {
             {experience.map((exp) => (
               <div key={exp.id} className="pdfItem">
                 <h3>{exp.title}</h3>
-                <p>{exp.company} &mdash; {exp.start_date} to {exp.end_date}</p>
+                <p>
+                  {exp.company} &mdash; {exp.start_date} to {exp.end_date}
+                </p>
                 <p>{exp.description}</p>
               </div>
             ))}
@@ -69,7 +71,9 @@ export default function ExportPdf({ userInfo, experience, education, skills }) {
             {education.map((edu) => (
               <div key={edu.id} className="pdfItem">
                 <h3>{edu.course}</h3>
-                <p>{edu.school} &mdash; {edu.start_date} to {edu.end_date}</p>
+                <p>
+                  {edu.school} &mdash; {edu.start_date} to {edu.end_date}
+                </p>
                 {edu.grade && <p>Grade: {edu.grade}</p>}
               </div>
             ))}
@@ -82,7 +86,8 @@ export default function ExportPdf({ userInfo, experience, education, skills }) {
             <ul>
               {skills.map((skill) => (
                 <li key={skill.id}>
-                  {skill.name} {skill.proficiency ? `(${skill.proficiency})` : ""}
+                  {skill.name}{" "}
+                  {skill.proficiency ? `(${skill.proficiency})` : ""}
                 </li>
               ))}
             </ul>

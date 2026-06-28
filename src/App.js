@@ -1,14 +1,24 @@
 import React, { useState } from "react";
 import "./App.css";
 import AddExperience from "./AddExperience";
+import EditExperience from "./EditExperience";
 
 function App() {
   const [isAddingExperience, setIsAddingExperience] = useState(false);
+  const [isEditingExperience, setIsEditingExperience] = useState(false);
 
   if (isAddingExperience) {
     return (
       <div className="App">
         <AddExperience onBack={() => setIsAddingExperience(false)} />
+      </div>
+    );
+  }
+
+  if (isEditingExperience) {
+    return (
+      <div className="App">
+        <EditExperience onBack={() => setIsEditingExperience(false)} />
       </div>
     );
   }
@@ -21,6 +31,9 @@ function App() {
         <p>Experience Placeholder</p>
         <button onClick={() => setIsAddingExperience(true)}>
           Add Experience
+        </button>
+        <button onClick={() => setIsEditingExperience(true)}>
+          Edit Experience
         </button>
         <br></br>
       </div>
